@@ -1,0 +1,26 @@
+def main():
+    a = []
+    cnt = 0
+    n = int(input("Enter n: "))
+    
+    print("Enter array elements (sorted binary array of 0s and 1s):")
+    for _ in range(n):
+        a.append(int(input()))
+
+    low = 0
+    high = n - 1
+    first_zero = -1
+
+    while low <= high:
+        mid = (low + high) // 2
+        if a[mid] == 0:
+            first_zero = mid
+            cnt = n - first_zero
+            high = mid - 1
+        else:
+            low = mid + 1
+
+    print(cnt)
+
+if __name__ == "__main__":
+    main()
